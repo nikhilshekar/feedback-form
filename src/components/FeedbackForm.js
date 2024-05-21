@@ -3,6 +3,7 @@ import ValidateForm from "../validation";
 import { toast } from "react-toastify";
 
 export default function FeedbackForm({ setFeedbackList }) {
+  let feedbackList = JSON.parse(localStorage.getItem("feedback")) || [];
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     name: "",
@@ -28,7 +29,7 @@ export default function FeedbackForm({ setFeedbackList }) {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      let feedbackList = JSON.parse(localStorage.getItem("feedback")) || [];
+      formData.id = feedbackList.length + 1;
       feedbackList.push(formData);
       setFeedbackList(feedbackList);
       localStorage.setItem("feedback", JSON.stringify(feedbackList));
@@ -69,7 +70,7 @@ export default function FeedbackForm({ setFeedbackList }) {
                 onChange={handleChange}
               />
               {errors.name && (
-                <span className="error-message">{errors.name}</span>
+                <span className="error-message"><i class="fa-solid fa-circle-exclamation  me-2"></i>{errors.name}</span>
               )}
             </div>
           </div>
@@ -86,12 +87,14 @@ export default function FeedbackForm({ setFeedbackList }) {
                 id="email"
                 value={formData.email}
                 className={
-                  errors.email ? "form-control is-invalid" : "form-control valid"
+                  errors.email
+                    ? "form-control is-invalid"
+                    : "form-control valid"
                 }
                 onChange={handleChange}
               />
               {errors.email && (
-                <span className="error-message">{errors.email}</span>
+                <span className="error-message"><i class="fa-solid fa-circle-exclamation me-2"></i>{errors.email}</span>
               )}
             </div>
           </div>
@@ -113,7 +116,7 @@ export default function FeedbackForm({ setFeedbackList }) {
                 onChange={handleChange}
               />
               {errors.mobile && (
-                <span className="error-message">{errors.mobile}</span>
+                <span className="error-message"><i class="fa-solid fa-circle-exclamation me-2"></i>{errors.mobile}</span>
               )}
             </div>
           </div>
@@ -172,7 +175,11 @@ export default function FeedbackForm({ setFeedbackList }) {
               </label>
             </div>
           </div>
-          {errors.qst1 && <span className="error-message">{errors.qst1}</span>}
+          <div>
+            {errors.qst1 && (
+              <span className="error-message qst-err"><i class="fa-solid fa-circle-exclamation me-2"></i>{errors.qst1}</span>
+            )}
+          </div>
 
           <div>
             <p>2. Please rate the quality of your beverage.*</p>
@@ -225,7 +232,12 @@ export default function FeedbackForm({ setFeedbackList }) {
               </label>
             </div>
           </div>
-          {errors.qst2 && <span className="error-message">{errors.qst2}</span>}
+          <div>
+            {errors.qst2 && (
+              <span className="error-message qst-err"><i class="fa-solid fa-circle-exclamation me-2"></i>{errors.qst2}</span>
+            )}
+          </div>
+
           <div>
             <p>3. Was our restaurant clean?*</p>
             <div className="form-check form-check-inline">
@@ -277,7 +289,11 @@ export default function FeedbackForm({ setFeedbackList }) {
               </label>
             </div>
           </div>
-          {errors.qst3 && <span className="error-message">{errors.qst3}</span>}
+          <div>
+            {errors.qst3 && (
+              <span className="error-message qst-err"><i class="fa-solid fa-circle-exclamation me-2"></i>{errors.qst3}</span>
+            )}
+          </div>
           <div>
             <p>4. Please rate your overall dining experience.*</p>
             <div className="form-check form-check-inline">
@@ -329,7 +345,12 @@ export default function FeedbackForm({ setFeedbackList }) {
               </label>
             </div>
           </div>
-          {errors.qst4 && <span className="error-message">{errors.qst4}</span>}
+          <div>
+            {" "}
+            {errors.qst4 && (
+              <span className="error-message qst-err"><i class="fa-solid fa-circle-exclamation me-2"></i>{errors.qst4}</span>
+            )}
+          </div>
           <button type="submit" className="btn btn-primary btn-lg mt-4">
             Submit
           </button>

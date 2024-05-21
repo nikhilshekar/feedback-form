@@ -24,9 +24,7 @@ function App() {
     <div className="app">
       <ToastContainer />
       <header className="app-header">
-        <h1>
-        Aromatic Bar
-        </h1>
+        <h1>Aromatic Bar</h1>
       </header>
       <main className="container mt-2 mb-5 border  border-primary-subtle">
         <Box sx={{ width: "100%", typography: "body1" }}>
@@ -41,7 +39,10 @@ function App() {
               <FeedbackForm setFeedbackList={setFeedbackList} />
             </TabPanel>
             <TabPanel value="2">
-              <FeedbackTable feedbackList={feedbackList} />
+              <FeedbackTable
+                feedbackList={feedbackList}
+                setFeedbackList={setFeedbackList}
+              />
             </TabPanel>
           </TabContext>
         </Box>

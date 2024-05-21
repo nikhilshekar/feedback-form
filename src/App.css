@@ -22,11 +22,22 @@
   width: 100%;
 }
 .search {
-  width: 35%;
+  width: 42%;
   margin: auto;
 }
 .error-message {
   color: red;
   font-size: 12px;
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  position: relative;
+  top: 5px;
   margin-top: 4px;
+}
+
+.qst-err {
+  top: -16px;
 }
