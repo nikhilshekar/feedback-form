@@ -32,7 +32,7 @@ export default function FeedbackForm({ setFeedbackList }) {
       formData.id = feedbackList.length + 1;
       feedbackList.push(formData);
       setFeedbackList(feedbackList);
-      localStorage.setItem("feedback", JSON.stringify(feedbackList));
+      localStorage.setItem("feedbacks", JSON.stringify(feedbackList));
       toast.success("Feedback has been submitted");
     } else {
       toast.error("Feedback submission has failed!");
