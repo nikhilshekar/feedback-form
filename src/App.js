@@ -13,7 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 function App() {
   let [value, setValue] = useState("1");
   let [feedbackList, setFeedbackList] = useState(
-    JSON.parse(localStorage.getItem("feedback")) || []
+    JSON.parse(localStorage.getItem("feedbacks")) || []
   );
 
   const handleChange = (event, newValue) => {
