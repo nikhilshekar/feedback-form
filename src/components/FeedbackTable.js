@@ -35,7 +35,7 @@ export default function FeedbackTable({ feedbackList, setFeedbackList }) {
       );
       setTableList(deletedList);
       toast.success("Feedback has been deleted");
-      localStorage.setItem("feedback", JSON.stringify(deletedList));
+      localStorage.setItem("feedbacks", JSON.stringify(deletedList));
       setFeedbackList(deletedList);
       setCheckedValue([]);
     }
