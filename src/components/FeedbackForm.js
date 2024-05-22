@@ -3,7 +3,7 @@ import ValidateForm from "../validation";
 import { toast } from "react-toastify";
 
 export default function FeedbackForm({ setFeedbackList }) {
-  let feedbackList = JSON.parse(localStorage.getItem("feedback")) || [];
+  let feedbackList = JSON.parse(localStorage.getItem("feedbacks")) || [];
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
     name: "",
